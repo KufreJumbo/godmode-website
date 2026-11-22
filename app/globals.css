@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    @apply bg-gold-200 text-navy;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-navy ring-offset-2 ring-offset-white;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-navy;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-6 bg-gold;
+  }
+
+  .serif-accent {
+    @apply font-serif italic font-normal;
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-1.5 font-semibold text-navy;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-gold transition-transform duration-300;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-card transition-all duration-300;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1 border-gold-200 shadow-card-hover;
+  }
+}
+
+/* CSS-only entrance for above-the-fold content: visible as soon as styles load, no JS needed. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer utilities {
+  .animate-rise {
+    animation: rise 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98) both;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .pause-on-hover:hover > * {
+    animation-play-state: paused;
+  }
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(0, 33, 96, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 33, 96, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .bg-grid-fade {
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 100%);
+  }
+}

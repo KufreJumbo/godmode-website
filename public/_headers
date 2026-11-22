@@ -1,0 +1,31 @@
+# Cloudflare Pages response headers. https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Share images are exported without a file extension, so declare their type for WhatsApp, LinkedIn, X and Facebook.
+/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+/services/*/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+
+# Hashed build files never change: cache for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photos, logos and the hero video keep their names when replaced, so cache for a week.
+/images/*
+  Cache-Control: public, max-age=604800
+/brand/*
+  Cache-Control: public, max-age=604800
+/clients/*
+  Cache-Control: public, max-age=604800
+/team/*
+  Cache-Control: public, max-age=604800
+/video/*
+  Cache-Control: public, max-age=604800
