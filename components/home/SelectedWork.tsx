@@ -15,7 +15,6 @@ const work = [
       "A hands-on bootcamp where students built real projects with AI tools, from websites to presentations, and graduated with certificates.",
     fact: "Graduates certified",
     icon: Book,
-    logo: null,
   },
   {
     tag: "Schools",
@@ -24,7 +23,7 @@ const work = [
       "AI training designed for a school environment: teachers, leadership and students, built around lesson planning, assessment and administration.",
     fact: "School AI programme",
     icon: Users,
-    logo: findLogo("sagab-schools"),
+    logoName: "sagab-schools",
   },
   {
     tag: "AI Transformation",
@@ -58,16 +57,18 @@ export default function SelectedWork() {
       <RevealStagger className="mt-14 grid gap-5 md:grid-cols-3">
         {work.map((w) => {
           const Icon = w.icon;
+          // Client logos are looked up on each render, so a newly added file shows up straight away.
+          const logo = w.logo ?? (w.logoName ? findLogo(w.logoName) : null);
           return (
             <RevealItem key={w.title} className="h-full">
               <article className="card card-hover group flex h-full flex-col overflow-hidden">
                 <div className="relative flex h-44 items-center justify-center overflow-hidden bg-navy">
                   <div className="absolute inset-0 bg-grid opacity-30" />
                   <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gold/30 blur-3xl" />
-                  {w.logo ? (
+                  {logo ? (
                     <span className="relative rounded-2xl bg-white p-3">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={w.logo} alt={`${w.title} logo`} loading="lazy" className="h-12 w-auto max-w-[160px] object-contain" />
+                      <img src={logo} alt={`${w.title} logo`} loading="lazy" className="h-12 w-auto max-w-[160px] object-contain" />
                     </span>
                   ) : (
                     <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-gold ring-1 ring-white/20">

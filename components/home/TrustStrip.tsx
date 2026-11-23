@@ -49,7 +49,7 @@ export default function TrustStrip() {
                   {logo ? (
                     // Plain <img>: client logos come in any shape, and h-10 w-auto keeps each one's proportions.
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={logo} alt={`${c.name} logo`} loading="lazy" className="h-10 w-auto max-w-[120px] object-contain" />
+                    <img src={logo} alt={`${c.name} logo`} loading="lazy" className="h-12 w-auto max-w-[150px] object-contain" />
                   ) : (
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
                   )}
