@@ -13,7 +13,7 @@ export const site = {
   // The live domain. Every canonical URL, the sitemap and structured data are built from it.
   // NEXT_PUBLIC_SITE_URL overrides it, e.g. for a preview deployment.
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://godmodeai.org").replace(/\/$/, ""),
-  email: "hello@godmodeai.org",
+  email: "hello@godmodeaisolutions.com",
   phones: [
     { display: "0706 582 2790", tel: "+2347065822790" },
     { display: "0907 279 2548", tel: "+2349072792548" },
