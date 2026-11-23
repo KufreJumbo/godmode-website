@@ -4,8 +4,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { WorkGrid } from "@/components/work/WorkGrid";
-import Proof from "@/components/home/Proof";
 import { Gallery } from "@/components/Gallery";
+import { findLogo } from "@/lib/logos";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = pageMetadata({
@@ -30,7 +30,7 @@ export default function WorkPage() {
 
       <section className="container pb-24 md:pb-32">
         <Reveal>
-          <WorkGrid />
+          <WorkGrid logos={{ "sagab-schools": findLogo("sagab-schools") }} />
         </Reveal>
         <p className="mt-10 text-sm text-slate-500">
           More case studies are available on request. Client names and outcomes are shown with permission; where permission is pending, we describe the work without naming the client.
@@ -38,8 +38,6 @@ export default function WorkPage() {
       </section>
 
       <Gallery className="pt-0 md:pt-0" />
-
-      <Proof />
 
       <CTASection
         title={

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/cn";
 import { products } from "@/lib/site";
@@ -15,7 +14,9 @@ interface WorkItem {
   summary: string;
   delivered: string[];
   result: string;
+  /** A ready URL, or a client logo name looked up in `logos` (passed in from the server). */
   logo?: string;
+  logoName?: string;
 }
 
 const items: WorkItem[] = [
@@ -25,16 +26,16 @@ const items: WorkItem[] = [
     client: "Students",
     summary: "A hands-on bootcamp where students learned to build with AI: websites, projects and presentations, using a practical framework rather than theory.",
     delivered: ["Multi-day curriculum", "AI website creation framework", "Live build sessions", "Certificates of completion"],
-    result: "15 graduates certified",
+    result: "Graduates certified",
   },
   {
     category: "Training",
     title: "School AI programme",
-    client: "SAGAB Montessori",
+    client: "Sagab Schools",
     summary: "AI training shaped for a school: how teachers plan lessons and assess work faster, and how leadership can use AI in administration.",
     delivered: ["Teacher training", "Leadership session", "Classroom-ready templates"],
     result: "Teachers equipped with practical AI workflows",
-    logo: "/clients/sagab-montessori.webp",
+    logoName: "sagab-schools",
   },
   {
     category: "AI Transformation",
@@ -57,7 +58,8 @@ const items: WorkItem[] = [
 
 const filters: Array<"All" | Category> = ["All", "AI Transformation", "Training", "Web & Software", "Products"];
 
-export function WorkGrid() {
+/** `logos` maps client logo names to URLs found at build time (null while a logo file is missing). */
+export function WorkGrid({ logos = {} }: { logos?: Record<string, string | null> }) {
   const [active, setActive] = useState<(typeof filters)[number]>("All");
   const visible = items.filter((i) => active === "All" || i.category === active || (active === "Web & Software" && i.category === "Products"));
 
@@ -94,7 +96,11 @@ export function WorkGrid() {
             >
               <div className="flex items-center justify-between">
                 <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-navy">{w.category}</span>
-                {w.logo && <Image src={w.logo} alt={w.client} width={90} height={36} className="h-8 w-auto object-contain" />}
+                {(() => {
+                  const src = w.logo ?? (w.logoName ? logos[w.logoName] : null);
+                  // eslint-disable-next-line @next/next/no-img-element
+                  return src ? <img src={src} alt={`${w.client} logo`} loading="lazy" className="h-8 w-auto max-w-[110px] object-contain" /> : null;
+                })()}
               </div>
               <h3 className="mt-6 text-xl font-bold text-navy">{w.title}</h3>
               <p className="mt-1 text-sm font-medium text-slate-500">{w.client}</p>

@@ -6,21 +6,13 @@ import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
-import { Pin } from "@/components/ui/Icons";
 import { founders, principles, site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
-  description: "GodMode AI Solutions Limited: who we are, what we believe, and the people behind the work. Based in Ikeja, Lagos, serving Nigeria and beyond.",
+  description: "GodMode AI Solutions Limited: who we are, what we believe, and the people behind the work. Based in Lagos, Nigeria.",
   path: "/about",
 });
-
-const places = [
-  { city: "Lagos", note: "Home base in Ikeja. In-person training and projects across the city." },
-  { city: "Abuja", note: "Corporate training, institutions and project delivery." },
-  { city: "Port Harcourt", note: "Business programmes and school partnerships." },
-  { city: "Remote", note: "Online programmes and implementation for clients anywhere." },
-];
 
 export default function AboutPage() {
   return (
@@ -52,7 +44,7 @@ export default function AboutPage() {
                 business could keep it running.
               </p>
               <p>
-                Today we work with business owners, professionals, schools and institutions across Lagos, Abuja and Port Harcourt,
+                Today we work with business owners, professionals, schools and institutions from our base in Lagos, Nigeria,
                 and online with clients beyond. We build our own AI products too, which keeps us honest about what actually works.
               </p>
             </div>
@@ -134,33 +126,6 @@ export default function AboutPage() {
         </RevealStagger>
       </section>
 
-      {/* Where we work */}
-      <section className="bg-mist/70 py-24 md:py-32">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Where we work"
-            title={
-              <>
-                Nigeria <span className="serif-accent text-navy-700">and beyond.</span>
-              </>
-            }
-            description="Based in Ikeja, Lagos, with clients in Abuja, Port Harcourt and online."
-          />
-          <RevealStagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {places.map((p) => (
-              <RevealItem key={p.city} className="h-full">
-                <div className="card h-full p-7">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-navy">
-                    <Pin size={18} />
-                  </span>
-                  <h3 className="mt-5 text-xl font-bold text-navy">{p.city}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-slate">{p.note}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </RevealStagger>
-        </div>
-      </section>
 
       <CTASection
         title={

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Marquee } from "@/components/ui/Marquee";
 import { RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { clients, partner } from "@/lib/site";
+import { findLogo } from "@/lib/logos";
 
 const capabilities = [
   "AI strategy",
@@ -40,18 +41,23 @@ export default function TrustStrip() {
             </div>
           </RevealItem>
 
-          {clients.map((c) => (
-            <RevealItem key={c.name} y={12}>
-              <div className={chip} title={c.kind}>
-                {c.logo ? (
-                  <Image src={c.logo} alt={`${c.name} logo`} width={120} height={104} className="h-10 w-auto object-contain" />
-                ) : (
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
-                )}
-                <span className="text-[15px] font-semibold text-navy">{c.name}</span>
-              </div>
-            </RevealItem>
-          ))}
+          {clients.map((c) => {
+            const logo = findLogo(c.logo);
+            return (
+              <RevealItem key={c.name} y={12}>
+                <div className={chip} title={c.kind}>
+                  {logo ? (
+                    // Plain <img>: client logos come in any shape, and h-10 w-auto keeps each one's proportions.
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={logo} alt={`${c.name} logo`} loading="lazy" className="h-10 w-auto max-w-[120px] object-contain" />
+                  ) : (
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden />
+                  )}
+                  <span className="text-[15px] font-semibold text-navy">{c.name}</span>
+                </div>
+              </RevealItem>
+            );
+          })}
         </RevealStagger>
       </div>
 

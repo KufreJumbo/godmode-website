@@ -5,7 +5,6 @@ import WhatWeDo from "@/components/home/WhatWeDo";
 import SelectedWork from "@/components/home/SelectedWork";
 import Method from "@/components/home/Method";
 import WhyGodMode from "@/components/home/WhyGodMode";
-import Proof from "@/components/home/Proof";
 import Programmes from "@/components/home/Programmes";
 import InsightsSection from "@/components/home/InsightsSection";
 import { CTASection } from "@/components/CTASection";
@@ -31,7 +30,6 @@ export default function Home() {
       <SelectedWork />
       <Method />
       <WhyGodMode />
-      <Proof />
       <Gallery />
       <Programmes />
       <InsightsSection />

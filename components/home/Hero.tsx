@@ -43,7 +43,7 @@ export default function Hero() {
               <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Built, not just advised
             </li>
             <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Lagos · Abuja · Port Harcourt
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" /> Lagos, Nigeria
             </li>
           </ul>
         </div>

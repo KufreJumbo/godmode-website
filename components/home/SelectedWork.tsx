@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealStagger, RevealItem } from "@/components/ui/Reveal";
 import { Marquee } from "@/components/ui/Marquee";
 import { Button } from "@/components/ui/Button";
 import { ArrowUpRight, Book, Spark, Users } from "@/components/ui/Icons";
 import { products } from "@/lib/site";
+import { findLogo } from "@/lib/logos";
 
 const work = [
   {
@@ -13,17 +13,18 @@ const work = [
     title: "AI Bootcamp 2026",
     description:
       "A hands-on bootcamp where students built real projects with AI tools, from websites to presentations, and graduated with certificates.",
-    fact: "15 graduates certified",
+    fact: "Graduates certified",
     icon: Book,
+    logo: null,
   },
   {
     tag: "Schools",
-    title: "SAGAB Montessori",
+    title: "Sagab Schools",
     description:
       "AI training designed for a school environment: teachers, leadership and students, built around lesson planning, assessment and administration.",
     fact: "School AI programme",
     icon: Users,
-    logo: "/clients/sagab-montessori.webp",
+    logo: findLogo("sagab-schools"),
   },
   {
     tag: "AI Transformation",
@@ -65,7 +66,8 @@ export default function SelectedWork() {
                   <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gold/30 blur-3xl" />
                   {w.logo ? (
                     <span className="relative rounded-2xl bg-white p-3">
-                      <Image src={w.logo} alt={w.title} width={140} height={60} className="h-12 w-auto object-contain" />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={w.logo} alt={`${w.title} logo`} loading="lazy" className="h-12 w-auto max-w-[160px] object-contain" />
                     </span>
                   ) : (
                     <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-gold ring-1 ring-white/20">

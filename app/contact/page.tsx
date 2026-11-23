@@ -65,8 +65,7 @@ export default function ContactPage() {
                 <Pin size={20} />
               </span>
               <span>
-                <span className="block font-semibold text-navy">{site.address.long}</span>
-                <span className="text-sm text-slate-500">Serving {site.address.serving}</span>
+                <span className="block font-semibold text-navy">{site.address}</span>
               </span>
             </div>
             <div className="flex items-center gap-3 px-1 text-sm text-slate-500">

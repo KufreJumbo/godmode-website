@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const s = serviceBySlug(slug);
   if (!s) return {};
-  return pageMetadata({ title: `${s.title} in Nigeria`, description: `${s.summary} Lagos-based, serving clients across Nigeria.`, path: `/services/${s.slug}`, image: `/services/${s.slug}/opengraph-image` });
+  return pageMetadata({ title: `${s.title} in Nigeria`, description: `${s.summary} Based in Lagos, Nigeria.`, path: `/services/${s.slug}`, image: `/services/${s.slug}/opengraph-image` });
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {

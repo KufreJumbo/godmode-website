@@ -22,11 +22,7 @@ export const site = {
     number: "2347065822790",
     message: "Hi GodMode AI, I'd like to talk about how AI could help my business.",
   },
-  address: {
-    short: "Ikeja, Lagos",
-    long: "Ikeja, Lagos, Nigeria",
-    serving: "Lagos · Abuja · Port Harcourt · Remote",
-  },
+  address: "Lagos, Nigeria",
   replyPromise: "We reply within one business day.",
   /**
    * Official social profiles. Listed in structured data (schema.org sameAs) so Google can connect
@@ -137,8 +133,8 @@ export const services: Service[] = [
     cta: "Book a Training Session",
     photo: {
       src: "/images/sagab-training-hall.jpg",
-      alt: "A full hall of teachers at a GodMode AI training at Sagab College",
-      caption: "Teacher AI Training · Sagab College",
+      alt: "A full hall of teachers at a GodMode AI training at Sagab Schools",
+      caption: "Teacher AI Training · Sagab Schools",
     },
     problem: {
       title: "Why most AI training doesn't stick",
@@ -163,7 +159,7 @@ export const services: Service[] = [
       { title: "Review & improve", description: "We review the work, correct mistakes and set up the next steps so it sticks." },
     ],
     faqs: [
-      { q: "Can you train in person?", a: "Yes. We deliver in person in Lagos, Abuja and Port Harcourt, and online for teams and schools anywhere." },
+      { q: "Can you train in person?", a: "Yes. We deliver in person in Lagos, and online for teams and schools anywhere." },
       { q: "Do participants get certificates?", a: "Yes. Bootcamp and programme graduates receive a GodMode AI Solutions certificate of completion." },
       { q: "What size groups do you take?", a: "From small leadership teams to whole-school training days. We adapt the format to the group." },
     ],
@@ -316,14 +312,6 @@ export const programmes = [
   },
 ] as const;
 
-/** Only facts the company can evidence. Keep this list honest. */
-export const proofFacts = [
-  { value: "15", label: "Bootcamp graduates certified in the 2026 AI Bootcamp" },
-  { value: "5", label: "AI products designed and built in-house" },
-  { value: "3", label: "Structured programmes, from 4-week to scoped implementation" },
-  { value: "3", label: "Cities served on the ground: Lagos, Abuja, Port Harcourt" },
-] as const;
-
 /** Strategic partner, featured first in the trust strip. */
 export const partner = {
   name: "AMSConcepts Engineering Ltd",
@@ -332,14 +320,14 @@ export const partner = {
 } as const;
 
 /**
- * Clients shown in the trust strip. The logo-less names come from the training photos in /public/images.
+ * Clients shown in the trust strip and work cards. `logo` is a file name in /public/clients without the
+ * extension (.svg, .png, .webp, .jpg or .jpeg all work). Until that file exists, the name shows as text.
  * Remove any client who has not agreed to be named publicly.
  */
 export const clients = [
-  { name: "SAGAB Montessori", logo: "/clients/sagab-montessori.webp", kind: "School AI programme" },
-  { name: "Sagab College", logo: null, kind: "Teacher AI training" },
-  { name: "Kaztal Academy", logo: null, kind: "Staff AI training" },
-  { name: "Podium Dynamics Academy", logo: null, kind: "AI masterclass" },
+  { name: "Sagab Schools", logo: "sagab-schools", kind: "School AI training" },
+  { name: "Kaztal Academy", logo: "kaztal-academy", kind: "Staff AI training" },
+  { name: "Podium Dynamics Academy", logo: "pda", kind: "AI masterclass" },
 ] as const;
 
 export interface GalleryPhoto {
@@ -356,14 +344,14 @@ export interface GalleryPhoto {
  * kids-ai-class.jpg is left out until parental consent is confirmed.
  */
 export const gallery: GalleryPhoto[] = [
-  { src: "/images/sagab-training-hall.jpg", alt: "A full hall of teachers at a GodMode AI training at Sagab College", caption: "Teacher AI Training · Sagab College", size: "big" },
+  { src: "/images/sagab-training-hall.jpg", alt: "A full hall of teachers at a GodMode AI training at Sagab Schools", caption: "Teacher AI Training · Sagab Schools", size: "big" },
   { src: "/images/masterclass-video-talk.jpg", alt: "Grow With Video, Sell With Ease masterclass presentation", caption: "Grow With Video Masterclass · Podium Dynamics Academy" },
   { src: "/images/sagab-facilitator.jpg", alt: "GodMode AI facilitator teaching digital tools to educators", caption: "Digital Tools for Educators", size: "tall" },
   { src: "/images/kaztal-training.jpg", alt: "Staff AI workshop at Kaztal Academy", caption: "Staff AI Workshop · Kaztal Academy" },
   { src: "/images/kaztal-demo.jpg", alt: "Live demonstration turning a lesson into a video with AI", caption: "Live Demo: From a Lesson to a Video", size: "tall" },
   { src: "/images/kaztal-staff-group.jpg", alt: "Kaztal Academy staff after their GodMode AI training", caption: "Kaztal Academy Staff Cohort", size: "wide" },
   { src: "/images/sagab-session.jpg", alt: "Adults working through a GodMode AI workshop", caption: "Hands-on Workshop" },
-  { src: "/images/sagab-teachers-group.jpg", alt: "Sagab College teaching staff after their GodMode AI training", caption: "Sagab College Teaching Staff", size: "wide" },
+  { src: "/images/sagab-teachers-group.jpg", alt: "Sagab Schools teaching staff after their GodMode AI training", caption: "Sagab Schools Teaching Staff", size: "wide" },
   { src: "/images/masterclass-execs.jpg", alt: "Business leaders at a GodMode AI masterclass", caption: "AI for Business Leaders" },
 ];
 

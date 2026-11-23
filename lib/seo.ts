@@ -62,16 +62,11 @@ export function organizationSchema() {
     telephone: site.phones[0].tel,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Ikeja",
+      addressLocality: "Lagos",
       addressRegion: "Lagos",
       addressCountry: "NG",
     },
-    areaServed: [
-      { "@type": "City", name: "Lagos" },
-      { "@type": "City", name: "Abuja" },
-      { "@type": "City", name: "Port Harcourt" },
-      { "@type": "Country", name: "Nigeria" },
-    ],
+    areaServed: { "@type": "Country", name: "Nigeria" },
     contactPoint: site.phones.map((p) => ({
       "@type": "ContactPoint",
       telephone: p.tel,

@@ -70,7 +70,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-2xl font-bold text-navy">Contact</h2>
           <p>
-            {site.legalName}, {site.address.long}. Email {site.email}.
+            {site.legalName}, {site.address}. Email {site.email}.
           </p>
         </div>
       </section>

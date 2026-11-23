@@ -62,11 +62,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-[15px] text-white/70">
               <li className="flex items-start gap-3">
                 <Pin size={18} className="mt-0.5 shrink-0 text-gold" />
-                <span>
-                  {site.address.long}
-                  <br />
-                  <span className="text-white/45">{site.address.serving}</span>
-                </span>
+                <span>{site.address}</span>
               </li>
               {site.phones.map((p) => (
                 <li key={p.tel} className="flex items-center gap-3">

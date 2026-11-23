@@ -79,7 +79,7 @@ export async function renderOgImage({ eyebrow, title, accent }: { eyebrow: strin
           {/* Footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 22, fontWeight: 600, color: "rgba(255,255,255,0.72)" }}>
             <span>{domain}</span>
-            <span>Lagos · Abuja · Port Harcourt</span>
+            <span>Lagos, Nigeria</span>
           </div>
         </div>
       </div>
