@@ -94,7 +94,7 @@ Replace placeholder content in these files:
 **Contact Details** (multiple files):
 - Confirm WhatsApp number (currently: 2347065822790)
 - Verify phone numbers and email
-- Update domain if different from godmodeai.org
+- Update domain if different from godmodeaisolutions.com
 
 ### 2. Add Real Media
 
@@ -177,7 +177,7 @@ Update `app/layout.tsx` metadata:
 
 ```typescript
 export const metadata: Metadata = {
-  metadataBase: new URL('https://godmodeai.org'),
+  metadataBase: new URL('https://godmodeaisolutions.com'),
   title: {
     default: 'GodMode AI Solutions | AI Transformation Partner',
     template: '%s | GodMode AI Solutions'
@@ -223,7 +223,7 @@ Create `.env.local` file:
 
 ```env
 # Optional: Add your configuration
-NEXT_PUBLIC_SITE_URL=https://godmodeai.org
+NEXT_PUBLIC_SITE_URL=https://godmodeaisolutions.com
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 SENDGRID_API_KEY=your_key_here
 ```

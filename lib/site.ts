@@ -12,7 +12,7 @@ export const site = {
     "GodMode AI Solutions is the AI Transformation Partner helping businesses, schools and institutions in Nigeria and beyond work smarter, reach more customers and grow.",
   // The live domain. Every canonical URL, the sitemap and structured data are built from it.
   // NEXT_PUBLIC_SITE_URL overrides it, e.g. for a preview deployment.
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://godmodeai.org").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://godmodeaisolutions.com").replace(/\/$/, ""),
   email: "hello@godmodeaisolutions.com",
   phones: [
     { display: "0706 582 2790", tel: "+2347065822790" },
